@@ -1,0 +1,681 @@
+#
+# A sample tigrc.
+#
+
+# set variable = value {{{
+# Variables
+set diff-options = --pretty --abbrev-commit --oneline
+set blame-options = --show-stats -l
+set log-options = --oneline
+set main-options = --graph --oneline
+set reference-format = [head] <tag> local-tag hide:remote hide:tracked-remote replace (branch) stash other
+set line-graphics = ascii
+set truncation-delimiter = utf-8
+set horizontal-scroll = 30%
+set git-colors = branch.current=main-head grep.filename=grep.file
+set show-notes = "hoge"
+set show-changes = false
+set show-untracked = no
+set vertical-split = auto
+set split-view-height = 5
+set split-view-width = 1000%
+set status-show-untracked-dirs = 0
+set status-show-untracked-files = 1
+set tab-size = 3
+set diff-context = 10
+set diff-highlight = /usr/share/git/diff-highlight/diff-highlight
+set ignore-space = at-eol
+set commit-order = author-date
+set ignore-case = smart-case
+set mailmap = yes
+set wrap-lines = 2222
+set focus-child = 12
+set send-child-enter = false
+set editor-line-number = no
+set history-size = 0
+set mouse = 1
+set mouse-scroll = 1
+set mouse-wheel-cursor = true
+set pgrp = true
+set start-on-head = true
+set refresh-mode = after-command
+set refresh-interval = 1
+set file-args = --revs-only
+set rev-args = --not --short
+
+# View settings
+set blob-view = line-number:display=false,interval=5,width=0 text:commit-title-overflow=true
+set diff-view = line-number:display=false,interval=5,width=0
+set log-view = text:commit-title-overflow=true
+set pager-view = line-number:false text:commit-title-overflow=true
+set stage-view = line-number:interval=5,width=0 text:commit-title-overflow=true
+set blame-view = author:display=abbreviated,width=0,maxwidth=45% date:display=relative-compact,local=0,format="%Y%M%D %h%m%s",width=1000 file-name:display=always,width=1,maxwidth=1 id:display=false,width=11 line-number:display=2,interval=1,width=2 text:commit-title-overflow=1
+set grep-view = file-name:display=always,width=0,maxwidth=123456789 line-number:display=false,interval=0,width=1 text:commit-title-overflow=true
+set main-view = \
+  author:display=full,width=9999,maxwidth=987 \
+  date:display=relative,local=88,format='%Y-%M-%D',width=66 \
+  commit-title:graph=v1,refs=1,overflow=2 \
+  id:display=1,width=1 \
+  line-number:display=true,interval=100,width=3 \
+  ref:display=false,width=10,maxwidth=555
+set reflog-view = author:display=email-user,width=1,maxwidth=45 date:display=custom,local=3,format=%Y%M%D,width=3 commit-title:graph=v2,refs=10,overflow=20 id:display=yes,width=1 line-number:display=no,interval=2,width=3 ref:display=1,width=1,maxwidth=1
+set refs-view = author:display=email,width=0,maxwidth=1 date:display=default,local=1,format="%Y",width=123 commit-title:graph=no,refs=true,overflow=true id:display=false,width=10 line-number:display=0,interval=0,width=0 ref:display=3,width=3,maxwidth=3
+set stash-view = author:display=yes,width=5678,maxwidth=4 date:display=no,local=no,format='%Y',width=10 commit-title:graph=true,refs=true,overflow=true id:display=yes,width=1 line-number:display=yes,interval=10,width=10
+set status-view = file-name:display=auto,width=10,maxwidth=10 line-number:display=false,interval=0,width=0 status:display=short
+set tree-view = author:display=yes,width=0,maxwidth=0 date:display=no,local=no,format=,width=0 id:display=yes,width=1 file-name:display=yes,width=0,maxwidth=0 file-size:display=units,width=1 line-number:display=false,interval=100,width=100 mode:display=1,width=1
+
+set main-view = id
+set main-view = id:false
+set main-view-id-display = true
+set diff-view-line-number = display=false,interval=5,width=0
+set log-view-line-number-display = false
+set pager-view-line-number = false
+# }}}
+
+# bind {{{
+# Keymaps, Key values {{{
+bind main S :source ~/.tigrc
+bind diff s :source ~/.tigrc
+bind diff <Ctrl-s> :source ~/.tigrc
+bind diff <Esc>s :source ~/.tigrc
+bind log <Enter> :source ~/.tigrc
+bind reflog <Space> :source ~/.tigrc
+bind help <Backspace> :source ~/.tigrc
+bind pager <Tab> :source ~/.tigrc
+bind status <Escape> :source ~/.tigrc
+bind stage <Esc> :source ~/.tigrc
+bind tree <Left> :source ~/.tigrc
+bind blob <Right> :source ~/.tigrc
+bind blame <Up> :source ~/.tigrc
+bind refs <Down> :source ~/.tigrc
+bind stash <Insert> :source ~/.tigrc
+bind grep <Ins> :source ~/.tigrc
+bind generic <Delete> :source ~/.tigrc
+bind generic <Del> :source ~/.tigrc
+bind generic <Hash> :source ~/.tigrc
+bind generic <LessThan> :source ~/.tigrc
+bind generic <LT> :source ~/.tigrc
+bind generic <Home> :source ~/.tigrc
+bind generic <End> :source ~/.tigrc
+bind generic <PageUp> :source ~/.tigrc
+bind generic <PgUp> :source ~/.tigrc
+bind generic <PageDown> :source ~/.tigrc
+bind generic <PgDown> :source ~/.tigrc
+bind generic <ScrollBack> :source ~/.tigrc
+bind generic <SBack> :source ~/.tigrc
+bind generic <ScrollFwd> :source ~/.tigrc
+bind generic <SFwd> :source ~/.tigrc
+bind generic <ShiftTab> :source ~/.tigrc
+bind generic <BackTab> :source ~/.tigrc
+bind generic <ShiftLeft> :source ~/.tigrc
+bind generic <ShiftRight> :source ~/.tigrc
+bind generic <ShiftDelete> :source ~/.tigrc
+bind generic <ShiftDel> :source ~/.tigrc
+bind generic <ShiftHome> :source ~/.tigrc
+bind generic <ShiftEnd> :source ~/.tigrc
+bind generic <SingleQuote> :source ~/.tigrc
+bind generic <DoubleQuote> :source ~/.tigrc
+bind generic <F1> :source ~/.tigrc
+bind generic <F2> :source ~/.tigrc
+bind generic <F3> :source ~/.tigrc
+bind generic <F4> :source ~/.tigrc
+bind generic <F5> :source ~/.tigrc
+bind generic <F6> :source ~/.tigrc
+bind generic <F7> :source ~/.tigrc
+bind generic <F8> :source ~/.tigrc
+bind generic <F9> :source ~/.tigrc
+bind generic <F10> :source ~/.tigrc
+bind generic <F11> :source ~/.tigrc
+bind generic <F12> :source ~/.tigrc
+bind generic <F13> :source ~/.tigrc
+bind generic <F14> :source ~/.tigrc
+bind generic <F15> :source ~/.tigrc
+bind generic <F16> :source ~/.tigrc
+bind generic <F17> :source ~/.tigrc
+bind generic <F18> :source ~/.tigrc
+bind generic <F19> :source ~/.tigrc
+# }}}
+
+# External user-defined commands {{{
+bind status C !git commit -v
+bind main C !git sw -d %(commit)
+bind main I +sh -c 'git log | grep hoge'
+bind main L !?>echo -e %(head) %(commit) %(blob) %(branch) %(remote) %(tag) %(refname) %(stash) %(directory) %(file) %(file_old) %(lineno) %(lineno_old) %(ref) %(revargs) %(cmdlineargs) %(diffargs) %(blameargs) %(logargs) %(mainargs) %(prompt) %(text) %(repo:head) %(repo:head-id) %(repo:remote) %(repo:cdup) %(repo:prefix) %(repo:git-dir) %(repo:worktree) %(repo:is-inside-work-tree)
+bind blob T >git diff %(head)..%(commit) %(file)
+# }}}
+
+# Internal user-defined commands {{{
+# Reload ~/.tigrc when 'S' is pressed
+bind generic S :source .tigrc
+
+# Change diff view to show all commit changes regardless of file limitations
+bind diff F :set diff-options = --full-diff
+
+# Show the output of git-reflog(1) in the pager view
+bind generic W :!git reflog
+
+# Search for previous diff (c)hunk and next diff header
+bind stage 2 :?^@@
+bind stage D :/^diff --(git|cc)
+
+bind main I :toggle id			   # Show/hide the ID column
+bind diff D :toggle diff-options --minimal	   # Use minimal diff algorithm
+bind diff [ :toggle diff-context -3		   # Decrease context (-U arg)
+bind diff ] :toggle diff-context +3		   # Increase context
+bind generic V :toggle split-view-height -10%   # Decrease split height
+# }}}
+
+# Action names {{{
+# View switching {{{
+bind generic q :view-main
+bind generic q :vIEw-maIn
+bind generic q :View.Main
+bind generic q :VIEW_MAIN
+bind generic q :view-diff
+bind generic q :view-log
+bind generic q :view-reflog
+bind generic q :view-tree
+bind generic q :view-blob
+bind generic q :view-blame
+bind generic q :view-refs
+bind generic q :view-status
+bind generic q :view-stage
+bind generic q :view-stash
+bind generic q :view-grep
+bind generic q :view-pager
+bind generic q :view-help
+# }}}
+
+# View manipulation {{{
+bind generic q :enter
+bind generic q :back
+bind generic q :next
+bind generic q :previous
+bind generic q :parent
+bind generic q :view-next
+bind generic q :refresh
+bind generic q :maximize
+bind generic q :view-close
+bind generic q :view-close-no-quit
+bind generic q :quit
+# }}}
+
+# View-specific actions {{{
+bind generic q :status-update
+bind generic q :status-revert
+bind generic q :status-merge
+bind generic q :stage-update-line
+bind generic q :stage-update-part
+bind generic q :stage-split-chunk
+# }}}
+
+# Cursor navigation {{{
+bind generic q :move-up
+bind generic q :move-down
+bind generic q :move-page-up
+bind generic q :move-page-down
+bind generic q :move-half-page-up
+bind generic q :move-half-page-down
+bind generic q :move-first-line
+bind generic q :move-last-line
+bind generic q :move-next-merge
+bind generic q :move-prev-merge
+# }}}
+
+# Scrolling {{{
+bind generic q :scroll-line-up
+bind generic q :scroll-line-down
+bind generic q :scroll-page-up
+bind generic q :scroll-page-down
+bind generic q :scroll-half-page-up
+bind generic q :scroll-half-page-down
+bind generic q :scroll-first-col
+bind generic q :scroll-left
+bind generic q :scroll-right
+# }}}
+
+# Searching {{{
+bind generic q :search
+bind generic q :search-back
+bind generic q :find-next
+bind generic q :find-prev
+# }}}
+
+# Misc {{{
+bind generic q :edit
+bind generic q :prompt
+bind generic q :options
+bind generic q :screen-redraw
+bind generic q :stop-loading
+bind generic q :show-version
+bind generic q :none
+
+bind generic q :80
+bind generic q :2f12bcc
+bind generic q :q
+bind generic q :!git log -p
+bind generic q :goto HEAD
+bind generic q :goto %(commit)^2
+bind generic q :save-display display.txt
+bind generic q :save-options tigrc
+bind generic q :save-view view.txt
+bind generic q :script tigrc
+bind generic q :exec !>git log
+bind generic q :echo hoge
+bind generic q :/^@@
+# }}}
+# }}}
+# }}}
+
+# color {{{
+# UI colors {{{
+# Table 1. General
+color default white black bold blink bold dim reverse standout underline
+color cursor green magenta
+color status blue cyan
+color title-focus yellow red
+color title-blur default color0
+color search-result color1 default
+color delimiter default color255
+color header 0 default
+color line-number default 1
+color id 255 default
+color date default default
+color author default default
+color mode default default
+color overflow default default
+color directory default default
+color file default default
+color file-size default default
+
+# Table 2. Main view colors
+color graph-commit default default
+color palette-0 default default
+color palette-13 default default
+color main-commit default default
+color main-annotated default default
+color main-head default default
+color main-remote default default
+color main-tracked default default
+color main-tag default default
+color main-local-tag default default
+color main-ref default default
+color main-replace default default
+
+# Table 3. Status view
+color stat-none default default
+color stat-staged default default
+color stat-unstaged default default
+color stat-untracked default default
+
+# Table 4. Help view
+color help-group default default
+color help-action default default
+# }}}
+
+# Highlighting {{{
+# Diff markup
+color diff-header default default
+color diff-chunk default default
+color diff-stat default default
+color diff-add default default
+color diff-add2 default default
+color diff-del default default
+color diff-del2 default default
+color diff-add-highlight default default
+color diff-del-highlight default default
+
+# Enhanced Git diff markup
+color diff-oldmode default default
+color diff-newmode default default
+color diff-copy-from default default
+color diff-copy-to default default
+color diff-similarity default default
+color diff-index default default
+
+# Pretty print commit headers
+color pp-refs default default
+color pp-reflog default default
+color pp-reflogmsg default default
+color pp-merge default default
+
+# Raw commit header
+color commit default default
+color parent default default
+color tree default default
+color author default default
+color committer default default
+
+# Tree markup
+color tree-dir default default
+color tree-file default default
+
+# misc
+color "Reflog message: " default default
+color "commit " default default
+color tree.date default default
+# }}}
+# }}}
+
+# source {{{
+source ~/.local.tigrc
+source -q ~/.local.tigrc
+# }}}
+
+# misc {{{
+set commit-order = topo	   # Order commits topologically
+set git-colors = no		   # Do not read Git's color settings.
+set horizontal-scroll = 33%	   # Scroll 33% of the view width
+set blame-options = -C -C -C	   # Blame lines from other files
+# }}}
+
+# dumped {{{
+# Saved by Tig
+
+## Settings
+
+set blame-options             =
+set blame-view                = id:yes,color=yes file-name:auto author:full date:default,local=no,format= line-number:yes,interval=1 text
+set blob-view                 = line-number:no,interval=5 text
+set commit-order              = auto
+set diff-context              = 3
+set diff-noprefix             = no
+set diff-options              =
+set diff-highlight            = "diff-highlight"
+set word-diff                 = no
+set diff-view                 = line-number:no,interval=5 text
+set editor-line-number        = yes
+set file-filter               = yes
+set focus-child               = yes
+set git-colors                = branch.current=main-head branch.local=main-ref branch.plain=main-ref branch.remote=main-remote diff.meta=diff-header diff.meta=diff-index diff.meta=diff-oldmode diff.meta=diff-newmode diff.frag=diff-chunk diff.old=diff-del diff.new=diff-add diff-highlight.oldHighlight=diff-del-highlight diff-highlight.newHighlight=diff-add-highlight grep.filename=grep.file grep.linenumber=grep.line-number grep.separator=grep.delimiter status.branch=status.header status.added=stat-staged status.updated=stat-staged status.changed=stat-unstaged status.untracked=stat-untracked
+set grep-view                 = file-name:no line-number:yes,interval=1 text
+set history-size              = 500
+set horizontal-scroll         = 50%
+set id-width                  = 0
+set ignore-case               = yes
+set ignore-space              = no
+set line-graphics             = default
+set log-options               =
+set log-view                  = line-number:no,interval=5 text
+set reflog-view               = line-number:no,interval=5 id:yes,color=no date:no,local=no,format= author:no commit-title:yes,graph=no,refs=yes
+set mailmap                   = yes
+set main-options              =
+set main-view                 = id:no,color=no author:abbreviated date:relative-compact,local=no,format= commit-title:yes,graph=v2,refs=yes,overflow=50
+set mouse                     = no
+set mouse-scroll              = 3
+set mouse-wheel-cursor        = no
+set pager-view                = line-number:no,interval=5 text
+set pgrp                      = no
+set reference-format          = [branch] {remote} <tag> ~replace~
+set refresh-interval          = 10
+set refresh-mode              = auto
+set refs-view                 = line-number:no id:no,color=no date:default,local=no,format= author:full ref commit-title:yes,graph=no,refs=no
+set rev-filter                = yes
+set send-child-enter          = yes
+set show-changes              = yes
+set show-notes                = yes
+set show-untracked            = yes
+set split-view-height         = 67%
+set split-view-width          = 50%
+set stage-view                = line-number:no,interval=5 text
+set start-on-head             = no
+set stash-view                = line-number:no,interval=5 id:no,color=no date:default,local=no,format= author:full commit-title:yes,graph=no,refs=no
+set status-show-untracked-dirs = yes
+set status-show-untracked-files = yes
+set status-view               = line-number:no,interval=5 status:short file-name:auto
+set tab-size                  = 8
+set tree-view                 = line-number:no,interval=5 mode author:full file-size:default date:default,local=no,format= id:no,color=no file-name:auto
+set truncation-delimiter      = "~"
+set vertical-split            = auto
+set wrap-lines                = no
+set wrap-search               = yes
+
+## Keybindings
+
+# View switching
+bind generic    m               view-main
+bind generic    d               view-diff
+bind generic    l               view-log
+bind generic    L               view-reflog
+bind generic    t               view-tree
+bind generic    f               view-blob
+bind generic    b               view-blame
+bind generic    r               view-refs
+bind generic    s               view-status
+bind generic    S               view-status
+bind generic    c               view-stage
+bind generic    y               view-stash
+bind generic    g               view-grep
+bind generic    p               view-pager
+bind generic    h               view-help
+# View manipulation
+bind generic    <Enter>         enter
+bind generic    <LessThan>      back
+bind generic    <Down>          next
+bind generic    <Ctrl-N>        next
+bind generic    J               next
+bind generic    <Up>            previous
+bind generic    <Ctrl-P>        previous
+bind generic    K               previous
+bind generic    ,               parent
+bind generic    <Tab>           view-next
+bind generic    R               refresh
+bind generic    <F5>            refresh
+bind generic    O               maximize
+bind generic    q               view-close
+bind generic    Q               quit
+bind generic    <Ctrl-C>        quit
+# Cursor navigation
+bind generic    k               move-up
+bind generic    j               move-down
+bind generic    <PageUp>        move-page-up
+bind generic    -               move-page-up
+bind generic    <PageDown>      move-page-down
+bind generic    <Space>         move-page-down
+bind generic    <Ctrl-U>        move-half-page-up
+bind generic    <Ctrl-D>        move-half-page-down
+bind generic    <Home>          move-first-line
+bind generic    <End>           move-last-line
+# Scrolling
+bind generic    <Insert>        scroll-line-up
+bind generic    <Ctrl-Y>        scroll-line-up
+bind generic    <Delete>        scroll-line-down
+bind generic    <Ctrl-E>        scroll-line-down
+bind generic    <ScrollBack>    scroll-page-up
+bind generic    <ScrollFwd>     scroll-page-down
+bind generic    |               scroll-first-col
+bind generic    <Left>          scroll-left
+bind generic    <Right>         scroll-right
+# Searching
+bind generic    /               search
+bind generic    ?               search-back
+bind generic    n               find-next
+bind generic    N               find-prev
+# Misc
+bind generic    e               edit
+bind generic    :               prompt
+bind generic    o               options
+bind generic    <Ctrl-L>        screen-redraw
+bind generic    z               stop-loading
+bind generic    v               show-version
+# Option toggling:
+bind generic    I               :toggle sort-order
+bind generic    i               :toggle sort-field
+bind generic    <Hash>          :toggle line-number
+bind generic    D               :toggle date
+bind generic    A               :toggle author
+bind generic    ~               :toggle line-graphics
+bind generic    F               :toggle file-name
+bind generic    W               :toggle ignore-space
+bind generic    X               :toggle id
+bind generic    $               :toggle commit-title-overflow
+bind generic    %               :toggle file-filter
+bind generic    ^               :toggle rev-filter
+# View manipulation
+bind search     <Ctrl-C>        view-close
+# Searching
+bind search     <Down>          find-next
+bind search     <Ctrl-N>        find-next
+bind search     <Ctrl-J>        find-next
+bind search     <Up>            find-prev
+bind search     <Ctrl-P>        find-prev
+bind search     <Ctrl-K>        find-prev
+# Option toggling:
+bind main       G               :toggle commit-title-graph
+bind main       F               :toggle commit-title-refs
+# Internal commands:
+bind main       H               :goto HEAD
+# External commands:
+bind main       C               !git sw -d %(commit)
+bind main       L               !echo %(head)..%(commit) %(file)
+# Option toggling:
+bind diff       [               :toggle diff-context -1
+bind diff       ]               :toggle diff-context +1
+# Internal commands:
+bind diff       @               :/^@@
+# Option toggling:
+bind reflog     F               :toggle commit-title-refs
+# External commands:
+bind reflog     C               ?git checkout %(branch)
+bind reflog     !               ?git reset --hard %(commit)
+# External commands:
+bind blob       T               >git diff %(head)..%(commit) %(file)
+# External commands:
+bind refs       C               ?git checkout %(branch)
+bind refs       !               ?git branch -D %(branch)
+# View-specific actions
+bind status     u               status-update
+bind status     !               status-revert
+bind status     M               status-merge
+# External commands:
+bind status     C               !git commit -v
+# View-specific actions
+bind stage      u               status-update
+bind stage      !               status-revert
+bind stage      1               stage-update-line
+bind stage      2               stage-update-part
+bind stage      \               stage-split-chunk
+# Option toggling:
+bind stage      [               :toggle diff-context -1
+bind stage      ]               :toggle diff-context +1
+# Internal commands:
+bind stage      @               :/^@@
+# External commands:
+bind stash      A               ?git stash apply %(stash)
+bind stash      P               ?git stash pop %(stash)
+bind stash      !               ?git stash drop %(stash)
+# Internal commands:
+bind pager      @               :/^@@
+
+## Colors
+
+color "diff --"                      yellow   default
+color "--- "                         yellow   default
+color "+++ "                         yellow   default
+color "---"                          blue     default
+color "@@"                           magenta  default  bold
+color "+"                            green    default  bold
+color " +"                           green    default
+color "-"                            red      default  bold
+color " -"                           red      default
+color "index "                       yellow   default
+color "old file mode "               yellow   default
+color "new file mode "               yellow   default
+color "deleted file mode "           yellow   default
+color "similarity "                  yellow   default
+color "\ No newline at end of file"  blue     default
+color diff-add-highlight             green    color22 bold
+color diff-del-highlight             red      color52 bold
+color "Merge: "                      blue     default
+color "Refs: "                       red      default
+color "Reflog: "                     red      default
+color "Reflog message: "             yellow   default
+color "commit "                      green    default
+color "parent "                      blue     default
+color "tree "                        blue     default
+color "author "                      green    default
+color "committer "                   magenta  default
+color default                        default  default
+color cursor                         black    white    bold
+color status                         green    default
+color delimiter                      magenta  default
+color date                           blue     default
+color mode                           cyan     default
+color id                             magenta  default
+color overflow                       red      default
+color directory                      yellow   default
+color file                           default  default
+color grep.file                      blue     default
+color file-size                      default  default
+color line-number                    cyan     default
+color title-blur                     black    white    bold
+color title-focus                    black    white    bold
+color header                         yellow   default
+color section                        cyan     default
+color main-commit                    default  default
+color main-annotated                 default  default  bold
+color main-tag                       magenta  default  bold
+color main-local-tag                 magenta  default
+color main-remote                    yellow   default
+color main-replace                   cyan     default
+color main-tracked                   yellow   default  bold
+color main-ref                       cyan     default
+color main-head                      cyan     default  bold
+color stat-none                      default  default
+color stat-staged                    magenta  default
+color stat-unstaged                  magenta  default
+color stat-untracked                 magenta  default
+color help-group                     blue     default
+color help-action                    yellow   default
+color diff-stat                      blue     default
+color palette-0                      magenta  default
+color palette-1                      yellow   default
+color palette-2                      cyan     default
+color palette-3                      green    default
+color palette-4                      default  default
+color palette-5                      white    default
+color palette-6                      red      default
+color palette-7                      magenta  default  bold
+color palette-8                      yellow   default  bold
+color palette-9                      cyan     default  bold
+color palette-10                     green    default  bold
+color palette-11                     default  default  bold
+color palette-12                     white    default  bold
+color palette-13                     red      default  bold
+color graph-commit                   blue     default
+color search-result                  black    yellow
+color "copy from "                   yellow   default
+color "copy to "                     yellow   default
+color "rename from "                 yellow   default
+color "rename to "                   yellow   default
+color "dissimilarity "               yellow   default
+color "diff-tree "                   blue     default
+color "Author: "                     cyan     default
+color "Commit: "                     magenta  default
+color "Tagger: "                     magenta  default
+color "Date: "                       yellow   default
+color "AuthorDate: "                 yellow   default
+color "CommitDate: "                 yellow   default
+color "TaggerDate: "                 yellow   default
+color "stash@{"                      magenta  default
+color "    Signed-off-by:"           yellow   default
+color "    Acked-by:"                yellow   default
+color "    Reviewed-by:"             yellow   default
+color "    Helped-by:"               yellow   default
+color "    Reported-by:"             yellow   default
+color "    Mentored-by:"             yellow   default
+color "    Suggested-by:"            yellow   default
+color "    Cc:"                      yellow   default
+color "    Noticed-by:"              yellow   default
+color "    Tested-by:"               yellow   default
+color "    Improved-by:"             yellow   default
+color "    Thanks-to:"               yellow   default
+color "    Based-on-patch-by:"       yellow   default
+color "    Contributions-by:"        yellow   default
+color "    Co-authored-by:"          yellow   default
+color "    Requested-by:"            yellow   default
+color "    Original-patch-by:"       yellow   default
+color "    Inspired-by:"             yellow   default
+# }}}
+
+# vim: set foldmethod=marker :
