@@ -145,24 +145,13 @@ bind blob T >git diff %(head)..%(commit) %(file)
 # }}}
 
 # Internal user-defined commands {{{
-# Reload ~/.tigrc when 'S' is pressed
-bind generic S :source .tigrc
-
-# Change diff view to show all commit changes regardless of file limitations
-bind diff F :set diff-options = --full-diff
-
-# Show the output of git-reflog(1) in the pager view
-bind generic W :!git reflog
-
-# Search for previous diff (c)hunk and next diff header
-bind stage 2 :?^@@
-bind stage D :/^diff --(git|cc)
-
-bind main I :toggle id			   # Show/hide the ID column
-bind diff D :toggle diff-options --minimal	   # Use minimal diff algorithm
-bind diff [ :toggle diff-context -3		   # Decrease context (-U arg)
-bind diff ] :toggle diff-context +3		   # Increase context
-bind generic V :toggle split-view-height -10%   # Decrease split height
+bind search <Ctrl-N> find-next
+bind search <Up> find-prev
+bind main H :goto HEAD
+bind stage u status-update
+bind stage \ stage-split-chunk
+bind stage ] :toggle diff-context +1
+bind stage @ :/^@@
 # }}}
 
 # Action names {{{
@@ -363,10 +352,39 @@ source -q ~/.local.tigrc
 # }}}
 
 # misc {{{
-set commit-order = topo	   # Order commits topologically
-set git-colors = no		   # Do not read Git's color settings.
-set horizontal-scroll = 33%	   # Scroll 33% of the view width
-set blame-options = -C -C -C	   # Blame lines from other files
+set main-options = --graph --oneline # A trailing comment.
+set reference-format = [head] <tag> local-tag hide:remote hide:tracked-remote replace (branch) stash other
+set horizontal-scroll = 30%
+set git-colors = branch.current=main-head grep.filename=grep.file
+set show-notes = "tigrc syntax highlighting"
+set diff-highlight = /usr/share/git/diff-highlight/diff-highlight
+set main-view = id:false author:display=full,width=9999
+set main-view = \
+  author:display=full,width=9999,maxwidth=987 \
+  date:display=relative,local=88,format='%Y-%M-%D',width=66 \
+  commit-title:graph=v1,refs=1,overflow=2
+set main-view-id-display = utf-8
+set diff-view-line-number = display=false,interval=5,width=0
+
+bind main C !git sw -d %(commit) # A trailing comment.
+bind main I +sh -c 'git log | grep hoge'
+bind main L !?>echo -e %(head) %(commit) %(blob) %(branch)
+bind search <Ctrl-N> find-next
+bind search <Up> find-prev
+bind stage \ stage-split-chunk
+bind stage ] :toggle diff-context +1
+bind stage @ :/^@@
+
+color default white black bold blink bold dim reverse standout underline # A trailing comment.
+color cursor green magenta
+color status blue cyan
+color title-focus yellow red
+color title-blur default color0
+color search-result color1 color2
+color delimiter color3 color4
+color main.date 0 color5
+color diff.line-number color6 1
+color id 255 color255
 # }}}
 
 # dumped {{{
