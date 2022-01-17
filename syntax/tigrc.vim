@@ -141,7 +141,9 @@ syntax keyword tigrcBoolean 1 true yes 0 false no contained
 
 syntax match tigrcNumber /\<\d\+\>/ contained
 
-syntax keyword tigrcEnum ascii default utf-8 auto all some at-eol topo date author-date reverse smart-case manual after-command periodic full abbreviated email-user email v1 v2 relative-compact relative custom always units short long head tag local-tag remote tracked-remote replace branch stash other contained
+syntax keyword tigrcEnum ascii default utf-8 auto all some at-eol topo author-date reverse smart-case manual after-command periodic full abbreviated email-user email v1 v2 relative-compact relative custom always units short long head tag local-tag remote tracked-remote replace branch stash other contained
+" `date` is also one of column name.
+syntax match tigrcEnum /\<date\>\ze[^:]/
 " For `set reference-format`
 syntax match tigrcEnum /\<hide\ze:\(\w\|-\)\+\>/ contained
 
